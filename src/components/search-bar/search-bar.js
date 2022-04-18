@@ -13,7 +13,9 @@ export default function SearchBar() {
 
     const onChangeSearchInput = (event) => {
         setSearchTerm(event.target.value);
-        history.push(`/${event.target.value}`);
+        if (event.target.value !== ''){
+            history.push(`/${event.target.value}`);
+        }
     };
 
     useEffect(() => {
