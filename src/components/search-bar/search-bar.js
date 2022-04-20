@@ -1,7 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
+import styled from '@emotion/styled'
 import './search-bar.css'
 import {DATASET} from '../../moc/dataset'
+
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
+const SearchInput = styled.input`
+    color: grey;
+    font-size: 25px;
+    border: 2px solid blue;
+    border-radius: 3px;
+`;
+const List = styled.ul`
+    list-style: none;
+    font-family: 'Marck Script', cursive;
+`;
+const ListItetm = styled.li`
+    color: darkblue;
+    margin: 5px;
+`;
 
 
 export default function SearchBar() {
@@ -27,20 +49,19 @@ export default function SearchBar() {
 
 
     return(
-        <div className='search-bar'>
-            <input
-                type='text'
+        <Container>
+            <SearchInput
                 placeholder='Search'
                 value={searchTerm}
                 onChange={onChangeSearchInput}
             />
-            <ul>
+            <List>
                 {searchResults.map(item => (
-                    <li key={item}>
+                    <ListItetm key={item}>
                         {item}
-                    </li>
+                    </ListItetm>
                 ))}
-            </ul>
-        </div>
+            </List>
+        </Container>
     )
 }
