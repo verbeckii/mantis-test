@@ -7,7 +7,7 @@ import SearchBar from './components/search-bar';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
-    <Route exact path="/:id">
+    <Route exact path="/:id?">
       <SearchBar />
     </Route>
   </Router>

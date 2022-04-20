@@ -30,14 +30,12 @@ export default function SearchBar() {
     const {id} = useParams();
     let history = useHistory();
 
-    const [searchTerm, setSearchTerm] = useState(id);
+    const [searchTerm, setSearchTerm] = useState(id || '');
     const [searchResults, setSearchResults] = useState([]);
 
     const onChangeSearchInput = (event) => {
         setSearchTerm(event.target.value);
-        if (event.target.value !== ''){
-            history.push(`/${event.target.value}`);
-        }
+        history.push(`/${event.target.value}`);
     };
 
     useEffect(() => {
