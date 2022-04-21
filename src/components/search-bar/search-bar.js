@@ -40,7 +40,7 @@ export default function SearchBar() {
 
     useEffect(() => {
         const results = DATASET.filter(item =>
-            item.toLowerCase().includes(searchTerm)
+            item.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults(results);
     }, [searchTerm]);
